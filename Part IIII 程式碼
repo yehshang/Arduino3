@@ -1,0 +1,18 @@
+
+void setup()
+{ 
+    pinMode(A0,INPUT);
+    Serial.begin(9600);
+}
+
+void loop() 
+{
+    int i;
+    double sensorVoltage,sensorValue ;
+    for(i=0;i<5;i++)
+        sensorValue = 0.7*sensorValue + 0.3*analogRead(A0);
+    sensorVoltage = sensorValue*5/1024;
+    
+    Serial.println(sensorVoltage);  
+    delay(500);
+}
